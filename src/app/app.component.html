@@ -1,0 +1,131 @@
+<mat-toolbar color='primary' class="navbar">
+      <div>
+        <span>Home</span>
+        <span>About-us</span>
+        <a [matMenuTriggerFor]="appMenu">Contact-us</a>
+                <mat-menu #appMenu="matMenu" xPosition="after">
+                  <button mat-menu-item [matMenuTriggerFor]="subMenu">Mobile No.</button>
+                  <button mat-menu-item [matMenuTriggerFor]="supMenu">Gmail</button>
+                </mat-menu>
+                <mat-menu #subMenu="matMenu">
+                  <button mat-menu-item>9876543215</button>
+                </mat-menu>
+                <mat-menu #supMenu="matMenu">
+                <button mat-menu-item>don@don.co.in</button>
+               </mat-menu>
+      </div>
+      <div>
+        <!--[matBadgeHidden]="notifications==0" ,, (click)="toggleBadgeVisibility()" for rendering exact values-->
+        <span><mat-icon color="accent" matBadge="4" matBadgeColor="accent"  >shopping_cart</mat-icon></span>
+        <span>Create account</span>
+        <span>Login</span>
+      </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav  #sidenav mode="side" opened>
+    
+    <a class="books" mat-stroked-button color="accent">Front End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Data-Base Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+    <a class="books" mat-stroked-button color="accent">Back End Books</a>
+  
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- <button (click)="opened=!opened">click </button>  its not necessary if used toggle -->
+    <a (click)="sidenav.toggle()">Books Lists</a>
+    
+  <mat-tab-group>
+    <mat-tab label="Angular Books list">
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="demo-position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="demo-name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="demo-Author">
+          <th mat-header-cell *matHeaderCellDef> Author </th>
+          <td mat-cell *matCellDef="let element"> {{element.Author}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="demo-Country">
+          <th mat-header-cell *matHeaderCellDef> Country </th>
+          <td mat-cell *matCellDef="let element"> {{element.Country}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-tab>
+    <mat-tab label="HTML Books List">HTML Books</mat-tab>
+    <mat-tab label="CSS Books List">Css Books</mat-tab>
+    <mat-tab label="Java-script Books List"> Java script
+
+      <!--Steeper material---------------->
+
+      <!-- <mat-stepper labelPosition="bottom" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template  matStepLabel>Fill out your name</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" optional>
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                     required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-stepper> -->
+
+
+
+      
+    </mat-tab>
+  </mat-tab-group>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
